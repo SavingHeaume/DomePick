@@ -72,7 +72,7 @@ def export_retinaface_to_onnx(model_path, output_path='retinaface.onnx'):
 
     # 创建示例输入
     batch_size = 1
-    input_shape = (3, 224, 224)  
+    input_shape = (3, 640, 640)  
     x = torch.randn(batch_size, *input_shape)
 
     # 动态轴设置
