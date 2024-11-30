@@ -7,7 +7,7 @@ import os
 
 TRT_LOGGER = trt.Logger(trt.Logger.INFO)
 
-def build_engine(onnx_file_path, engine_file_path="model.trt"):
+def build_engine(size, onnx_file_path, engine_file_path):
     # 创建 TensorRT builder 和 config
     with trt.Builder(TRT_LOGGER) as builder, \
          builder.create_network(flags=(1 << int(trt.NetworkDefinitionCreationFlag.EXPLICIT_BATCH))) as network, \
@@ -27,7 +27,7 @@ def build_engine(onnx_file_path, engine_file_path="model.trt"):
 
         # 优化配置
         profile = builder.create_optimization_profile()
-        profile.set_shape('input', (1, 3, 224, 224), (1, 3, 224, 224), (1, 3, 224, 224))
+        profile.set_shape('input', (1, 3, size, size), (1, 3, size, size), (1, 3, size, size))
         config.add_optimization_profile(profile)
 
         # 构建 TensorRT 引擎
@@ -46,5 +46,5 @@ def build_engine(onnx_file_path, engine_file_path="model.trt"):
         return serialized_engine
 
 if __name__ == "__main__":
-    build_engine("./weights/age_gender.onnx", "./weights/age_gender.trt")
-    build_engine("./weights/retinaface.onnx", "./weights/retinaface.trt")
+    build_engine(224, "./weights/age_gender.onnx", "./weights/age_gender.trt")
+    build_engine(640, "./weights/retinaface.onnx", "./weights/retinaface.trt")

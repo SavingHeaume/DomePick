@@ -71,9 +71,8 @@ def export_retinaface_to_onnx(model_path, output_path='retinaface.onnx'):
     model.eval()
 
     # 创建示例输入
-    batch_size = 1
-    input_shape = (3, 640, 640)  
-    x = torch.randn(batch_size, *input_shape)
+    input_shape = (1, 3, 640, 640)  
+    x = torch.randn(input_shape)
 
     # 动态轴设置
     dynamic_axes = {
