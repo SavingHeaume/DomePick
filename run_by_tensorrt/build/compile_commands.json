@@ -1,19 +1,19 @@
 [
 {
   "directory": "D:/Projects/Python/DomePick/run_by_tensorrt/build",
-  "command": "D:\\Tools\\LLVM\\bin\\clang++.exe -ID:/Tools/TensorRT/include -ID:/Tools/CudaToolkit/include -ID:/Tools/OpenCV/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -std=gnu++17 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -o CMakeFiles\\DomePick.dir\\src\\face_detector.cpp.obj -c D:\\Projects\\Python\\DomePick\\run_by_tensorrt\\src\\face_detector.cpp",
+  "command": "D:\\Tools\\LLVM\\bin\\clang++.exe -ID:/Tools/TensorRT/include -ID:/Tools/CudaToolkit/include -ID:/Tools/OpenCV/include -O0 -g -Xclang -gcodeview -std=gnu++17 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -w -o CMakeFiles\\DomePick.dir\\src\\face_detector.cpp.obj -c D:\\Projects\\Python\\DomePick\\run_by_tensorrt\\src\\face_detector.cpp",
   "file": "D:\\Projects\\Python\\DomePick\\run_by_tensorrt\\src\\face_detector.cpp",
   "output": "CMakeFiles\\DomePick.dir\\src\\face_detector.cpp.obj"
 },
 {
   "directory": "D:/Projects/Python/DomePick/run_by_tensorrt/build",
-  "command": "D:\\Tools\\LLVM\\bin\\clang++.exe -ID:/Tools/TensorRT/include -ID:/Tools/CudaToolkit/include -ID:/Tools/OpenCV/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -std=gnu++17 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -o CMakeFiles\\DomePick.dir\\src\\age_gender.cpp.obj -c D:\\Projects\\Python\\DomePick\\run_by_tensorrt\\src\\age_gender.cpp",
+  "command": "D:\\Tools\\LLVM\\bin\\clang++.exe -ID:/Tools/TensorRT/include -ID:/Tools/CudaToolkit/include -ID:/Tools/OpenCV/include -O0 -g -Xclang -gcodeview -std=gnu++17 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -w -o CMakeFiles\\DomePick.dir\\src\\age_gender.cpp.obj -c D:\\Projects\\Python\\DomePick\\run_by_tensorrt\\src\\age_gender.cpp",
   "file": "D:\\Projects\\Python\\DomePick\\run_by_tensorrt\\src\\age_gender.cpp",
   "output": "CMakeFiles\\DomePick.dir\\src\\age_gender.cpp.obj"
 },
 {
   "directory": "D:/Projects/Python/DomePick/run_by_tensorrt/build",
-  "command": "D:\\Tools\\LLVM\\bin\\clang++.exe -ID:/Tools/TensorRT/include -ID:/Tools/CudaToolkit/include -ID:/Tools/OpenCV/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -std=gnu++17 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -o CMakeFiles\\DomePick.dir\\src\\main.cpp.obj -c D:\\Projects\\Python\\DomePick\\run_by_tensorrt\\src\\main.cpp",
+  "command": "D:\\Tools\\LLVM\\bin\\clang++.exe -ID:/Tools/TensorRT/include -ID:/Tools/CudaToolkit/include -ID:/Tools/OpenCV/include -O0 -g -Xclang -gcodeview -std=gnu++17 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -w -o CMakeFiles\\DomePick.dir\\src\\main.cpp.obj -c D:\\Projects\\Python\\DomePick\\run_by_tensorrt\\src\\main.cpp",
   "file": "D:\\Projects\\Python\\DomePick\\run_by_tensorrt\\src\\main.cpp",
   "output": "CMakeFiles\\DomePick.dir\\src\\main.cpp.obj"
 }

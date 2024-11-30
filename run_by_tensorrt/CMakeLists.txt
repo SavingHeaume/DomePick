@@ -4,6 +4,8 @@ project(DomePick)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+add_compile_options(-w)
+
 # TensorRT paths
 set(TENSORRT_ROOT "D:\\Tools\\TensorRT")
 set(CUDA_ROOT "D:\\Tools\\CudaToolkit")
@@ -39,6 +41,10 @@ target_link_libraries(${PROJECT_NAME}
   nvonnxparser
   nvinfer_plugin
   cudart
+  opencv_core 
+  opencv_imgproc 
+  opencv_highgui 
+  opencv_imgcodecs
 )
 
 # Set CUDA runtime library (static or shared)

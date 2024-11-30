@@ -1,3 +1,3 @@
 datasets/
-run_by_rensorrt/build/
-run_by_rensorrt/.cache/
+run_by_tensorrt/build/
+run_by_tensorrt/.cache/

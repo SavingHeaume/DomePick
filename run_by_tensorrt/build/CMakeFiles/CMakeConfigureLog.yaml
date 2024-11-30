@@ -5,7 +5,7 @@ events:
     kind: "message-v1"
     backtrace:
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineSystem.cmake:205 (message)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     message: |
       The system is: Windows - 10.0.26100 - AMD64
   -
@@ -14,7 +14,7 @@ events:
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     message: |
       Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
       Compiler: D:/Tools/LLVM/bin/clang.exe 
@@ -36,7 +36,7 @@ events:
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:1243 (message)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:250 (CMAKE_DETERMINE_MSVC_SHOWINCLUDES_PREFIX)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     message: |
       Detecting C compiler /showIncludes prefix:
         
@@ -46,7 +46,7 @@ events:
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:1243 (message)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:250 (CMAKE_DETERMINE_MSVC_SHOWINCLUDES_PREFIX)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     message: |
       Detecting C compiler /showIncludes prefix:
         
@@ -56,7 +56,7 @@ events:
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     message: |
       Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
       Compiler: D:/Tools/LLVM/bin/clang++.exe 
@@ -78,7 +78,7 @@ events:
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:1243 (message)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:250 (CMAKE_DETERMINE_MSVC_SHOWINCLUDES_PREFIX)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     message: |
       Detecting CXX compiler /showIncludes prefix:
         
@@ -88,7 +88,7 @@ events:
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:1243 (message)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:250 (CMAKE_DETERMINE_MSVC_SHOWINCLUDES_PREFIX)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     message: |
       Detecting CXX compiler /showIncludes prefix:
         
@@ -97,29 +97,31 @@ events:
     backtrace:
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "D:/Projects/Python/DomePick/run_by_tensorrt/build/CMakeFiles/CMakeScratch/TryCompile-drqnh8"
-      binary: "D:/Projects/Python/DomePick/run_by_tensorrt/build/CMakeFiles/CMakeScratch/TryCompile-drqnh8"
+      source: "D:/Projects/Python/DomePick/run_by_tensorrt/build/CMakeFiles/CMakeScratch/TryCompile-gk42wf"
+      binary: "D:/Projects/Python/DomePick/run_by_tensorrt/build/CMakeFiles/CMakeScratch/TryCompile-gk42wf"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "D:/Tools/LLVM/bin/clang-scan-deps.exe"
       CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-O0 -g -Xclang -gcodeview"
+      CMAKE_EXE_LINKER_FLAGS: ""
     buildResult:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'D:/Projects/Python/DomePick/run_by_tensorrt/build/CMakeFiles/CMakeScratch/TryCompile-drqnh8'
+        Change Dir: 'D:/Projects/Python/DomePick/run_by_tensorrt/build/CMakeFiles/CMakeScratch/TryCompile-gk42wf'
         
-        Run Build Command(s): D:/Tools/Perl/c/bin/ninja.exe -v cmTC_a4103
-        [1/2] D:\\Tools\\LLVM\\bin\\clang.exe   -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -MD -MT CMakeFiles/cmTC_a4103.dir/CMakeCCompilerABI.c.obj -MF CMakeFiles\\cmTC_a4103.dir\\CMakeCCompilerABI.c.obj.d -o CMakeFiles/cmTC_a4103.dir/CMakeCCompilerABI.c.obj -c D:/Tools/CMake/share/cmake-3.30/Modules/CMakeCCompilerABI.c
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\Tools\\LLVM\\bin\\clang.exe -nostartfiles -nostdlib -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -v  -Xlinker /subsystem:console  -fuse-ld=lld-link CMakeFiles/cmTC_a4103.dir/CMakeCCompilerABI.c.obj -o cmTC_a4103.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_a4103.lib -Xlinker /pdb:cmTC_a4103.pdb -Xlinker /version:0.0     && cd ."
+        Run Build Command(s): D:/Tools/Perl/c/bin/ninja.exe -v cmTC_88637
+        [1/2] D:\\Tools\\LLVM\\bin\\clang.exe   -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -MD -MT CMakeFiles/cmTC_88637.dir/CMakeCCompilerABI.c.obj -MF CMakeFiles\\cmTC_88637.dir\\CMakeCCompilerABI.c.obj.d -o CMakeFiles/cmTC_88637.dir/CMakeCCompilerABI.c.obj -c D:/Tools/CMake/share/cmake-3.30/Modules/CMakeCCompilerABI.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\Tools\\LLVM\\bin\\clang.exe -nostartfiles -nostdlib -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -v  -Xlinker /subsystem:console  -fuse-ld=lld-link CMakeFiles/cmTC_88637.dir/CMakeCCompilerABI.c.obj -o cmTC_88637.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_88637.lib -Xlinker /pdb:cmTC_88637.pdb -Xlinker /version:0.0     && cd ."
         clang version 18.1.8
         Target: x86_64-pc-windows-msvc
         Thread model: posix
         InstalledDir: D:\\Tools\\LLVM\\bin
-         "D:\\\\Tools\\\\LLVM\\\\bin\\\\lld-link" -out:cmTC_a4103.exe "-libpath:D:\\\\ProgramFiles\\\\Microsoft Visual Studio\\\\2022\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.41.34120\\\\lib\\\\x64" "-libpath:D:\\\\ProgramFiles\\\\Microsoft Visual Studio\\\\2022\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.41.34120\\\\atlmfc\\\\lib\\\\x64" "-libpath:D:\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.22621.0\\\\ucrt\\\\x64" "-libpath:D:\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.22621.0\\\\um\\\\x64" "-libpath:D:\\\\Tools\\\\LLVM\\\\lib\\\\clang\\\\18\\\\lib\\\\windows" -nologo -debug /subsystem:console CMakeFiles/cmTC_a4103.dir/CMakeCCompilerABI.c.obj /MANIFEST:EMBED /implib:cmTC_a4103.lib /pdb:cmTC_a4103.pdb /version:0.0\x0d
+         "D:\\\\Tools\\\\LLVM\\\\bin\\\\lld-link" -out:cmTC_88637.exe "-libpath:D:\\\\ProgramFiles\\\\Microsoft Visual Studio\\\\2022\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.41.34120\\\\lib\\\\x64" "-libpath:D:\\\\ProgramFiles\\\\Microsoft Visual Studio\\\\2022\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.41.34120\\\\atlmfc\\\\lib\\\\x64" "-libpath:D:\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.22621.0\\\\ucrt\\\\x64" "-libpath:D:\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.22621.0\\\\um\\\\x64" "-libpath:D:\\\\Tools\\\\LLVM\\\\lib\\\\clang\\\\18\\\\lib\\\\windows" -nologo -debug /subsystem:console CMakeFiles/cmTC_88637.dir/CMakeCCompilerABI.c.obj /MANIFEST:EMBED /implib:cmTC_88637.lib /pdb:cmTC_88637.pdb /version:0.0\x0d
         
       exitCode: 0
   -
@@ -127,7 +129,7 @@ events:
     backtrace:
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     message: |
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
@@ -145,7 +147,7 @@ events:
       - "D:/Tools/CMake/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     message: |
       Running the C compiler's linker: "D:/Tools/LLVM/bin/lld-link" "-v"
       lld-link: warning: ignoring unknown argument '-v'
@@ -156,7 +158,7 @@ events:
       - "D:/Tools/CMake/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     message: |
       Running the C compiler's linker: "D:/Tools/LLVM/bin/lld-link" "-V"
       lld-link: warning: ignoring unknown argument '-V'
@@ -167,7 +169,7 @@ events:
       - "D:/Tools/CMake/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     message: |
       Running the C compiler's linker: "D:/Tools/LLVM/bin/lld-link" "--version"
       LLD 18.1.8
@@ -176,30 +178,32 @@ events:
     backtrace:
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "D:/Projects/Python/DomePick/run_by_tensorrt/build/CMakeFiles/CMakeScratch/TryCompile-wz060x"
-      binary: "D:/Projects/Python/DomePick/run_by_tensorrt/build/CMakeFiles/CMakeScratch/TryCompile-wz060x"
+      source: "D:/Projects/Python/DomePick/run_by_tensorrt/build/CMakeFiles/CMakeScratch/TryCompile-a6ru96"
+      binary: "D:/Projects/Python/DomePick/run_by_tensorrt/build/CMakeFiles/CMakeScratch/TryCompile-a6ru96"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "D:/Tools/LLVM/bin/clang-scan-deps.exe"
       CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-O0 -g -Xclang -gcodeview"
       CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: ""
     buildResult:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'D:/Projects/Python/DomePick/run_by_tensorrt/build/CMakeFiles/CMakeScratch/TryCompile-wz060x'
+        Change Dir: 'D:/Projects/Python/DomePick/run_by_tensorrt/build/CMakeFiles/CMakeScratch/TryCompile-a6ru96'
         
-        Run Build Command(s): D:/Tools/Perl/c/bin/ninja.exe -v cmTC_eb4e6
-        [1/2] D:\\Tools\\LLVM\\bin\\clang++.exe   -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -MD -MT CMakeFiles/cmTC_eb4e6.dir/CMakeCXXCompilerABI.cpp.obj -MF CMakeFiles\\cmTC_eb4e6.dir\\CMakeCXXCompilerABI.cpp.obj.d -o CMakeFiles/cmTC_eb4e6.dir/CMakeCXXCompilerABI.cpp.obj -c D:/Tools/CMake/share/cmake-3.30/Modules/CMakeCXXCompilerABI.cpp
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\Tools\\LLVM\\bin\\clang++.exe -nostartfiles -nostdlib -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -v  -Xlinker /subsystem:console  -fuse-ld=lld-link CMakeFiles/cmTC_eb4e6.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_eb4e6.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_eb4e6.lib -Xlinker /pdb:cmTC_eb4e6.pdb -Xlinker /version:0.0     && cd ."
+        Run Build Command(s): D:/Tools/Perl/c/bin/ninja.exe -v cmTC_0f4fa
+        [1/2] D:\\Tools\\LLVM\\bin\\clang++.exe   -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -MD -MT CMakeFiles/cmTC_0f4fa.dir/CMakeCXXCompilerABI.cpp.obj -MF CMakeFiles\\cmTC_0f4fa.dir\\CMakeCXXCompilerABI.cpp.obj.d -o CMakeFiles/cmTC_0f4fa.dir/CMakeCXXCompilerABI.cpp.obj -c D:/Tools/CMake/share/cmake-3.30/Modules/CMakeCXXCompilerABI.cpp
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\Tools\\LLVM\\bin\\clang++.exe -nostartfiles -nostdlib -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -v  -Xlinker /subsystem:console  -fuse-ld=lld-link CMakeFiles/cmTC_0f4fa.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_0f4fa.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_0f4fa.lib -Xlinker /pdb:cmTC_0f4fa.pdb -Xlinker /version:0.0     && cd ."
         clang version 18.1.8
         Target: x86_64-pc-windows-msvc
         Thread model: posix
         InstalledDir: D:\\Tools\\LLVM\\bin
-         "D:\\\\Tools\\\\LLVM\\\\bin\\\\lld-link" -out:cmTC_eb4e6.exe "-libpath:D:\\\\ProgramFiles\\\\Microsoft Visual Studio\\\\2022\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.41.34120\\\\lib\\\\x64" "-libpath:D:\\\\ProgramFiles\\\\Microsoft Visual Studio\\\\2022\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.41.34120\\\\atlmfc\\\\lib\\\\x64" "-libpath:D:\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.22621.0\\\\ucrt\\\\x64" "-libpath:D:\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.22621.0\\\\um\\\\x64" "-libpath:D:\\\\Tools\\\\LLVM\\\\lib\\\\clang\\\\18\\\\lib\\\\windows" -nologo -debug /subsystem:console CMakeFiles/cmTC_eb4e6.dir/CMakeCXXCompilerABI.cpp.obj /MANIFEST:EMBED /implib:cmTC_eb4e6.lib /pdb:cmTC_eb4e6.pdb /version:0.0\x0d
+         "D:\\\\Tools\\\\LLVM\\\\bin\\\\lld-link" -out:cmTC_0f4fa.exe "-libpath:D:\\\\ProgramFiles\\\\Microsoft Visual Studio\\\\2022\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.41.34120\\\\lib\\\\x64" "-libpath:D:\\\\ProgramFiles\\\\Microsoft Visual Studio\\\\2022\\\\Community\\\\VC\\\\Tools\\\\MSVC\\\\14.41.34120\\\\atlmfc\\\\lib\\\\x64" "-libpath:D:\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.22621.0\\\\ucrt\\\\x64" "-libpath:D:\\\\Windows Kits\\\\10\\\\Lib\\\\10.0.22621.0\\\\um\\\\x64" "-libpath:D:\\\\Tools\\\\LLVM\\\\lib\\\\clang\\\\18\\\\lib\\\\windows" -nologo -debug /subsystem:console CMakeFiles/cmTC_0f4fa.dir/CMakeCXXCompilerABI.cpp.obj /MANIFEST:EMBED /implib:cmTC_0f4fa.lib /pdb:cmTC_0f4fa.pdb /version:0.0\x0d
         
       exitCode: 0
   -
@@ -207,7 +211,7 @@ events:
     backtrace:
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     message: |
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
@@ -225,7 +229,7 @@ events:
       - "D:/Tools/CMake/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     message: |
       Running the CXX compiler's linker: "D:/Tools/LLVM/bin/lld-link" "-v"
       lld-link: warning: ignoring unknown argument '-v'
@@ -236,7 +240,7 @@ events:
       - "D:/Tools/CMake/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     message: |
       Running the CXX compiler's linker: "D:/Tools/LLVM/bin/lld-link" "-V"
       lld-link: warning: ignoring unknown argument '-V'
@@ -247,7 +251,7 @@ events:
       - "D:/Tools/CMake/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     message: |
       Running the CXX compiler's linker: "D:/Tools/LLVM/bin/lld-link" "--version"
       LLD 18.1.8
@@ -259,24 +263,26 @@ events:
       - "D:/Tools/CMake/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake:124 (_record_compiler_features_cxx)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerSupport.cmake:70 (cmake_record_cxx_compile_features)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:83 (CMAKE_DETERMINE_COMPILER_SUPPORT)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     checks:
       - "Detecting CXX compile features"
     directories:
-      source: "D:/Projects/Python/DomePick/run_by_tensorrt/build/CMakeFiles/CMakeScratch/TryCompile-ahwto3"
-      binary: "D:/Projects/Python/DomePick/run_by_tensorrt/build/CMakeFiles/CMakeScratch/TryCompile-ahwto3"
+      source: "D:/Projects/Python/DomePick/run_by_tensorrt/build/CMakeFiles/CMakeScratch/TryCompile-ft50gw"
+      binary: "D:/Projects/Python/DomePick/run_by_tensorrt/build/CMakeFiles/CMakeScratch/TryCompile-ft50gw"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "D:/Tools/LLVM/bin/clang-scan-deps.exe"
       CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-O0 -g -Xclang -gcodeview"
+      CMAKE_EXE_LINKER_FLAGS: ""
     buildResult:
       variable: "CMAKE_CXX_FEATURE_TEST"
       cached: true
       stdout: |
-        Change Dir: 'D:/Projects/Python/DomePick/run_by_tensorrt/build/CMakeFiles/CMakeScratch/TryCompile-ahwto3'
+        Change Dir: 'D:/Projects/Python/DomePick/run_by_tensorrt/build/CMakeFiles/CMakeScratch/TryCompile-ft50gw'
         
-        Run Build Command(s): D:/Tools/Perl/c/bin/ninja.exe -v cmTC_2edcd
-        [1/2] D:\\Tools\\LLVM\\bin\\clang++.exe   -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd   -std=c++14 -MD -MT CMakeFiles/cmTC_2edcd.dir/feature_tests.cxx.obj -MF CMakeFiles\\cmTC_2edcd.dir\\feature_tests.cxx.obj.d -o CMakeFiles/cmTC_2edcd.dir/feature_tests.cxx.obj -c D:/Projects/Python/DomePick/run_by_tensorrt/build/CMakeFiles/CMakeScratch/TryCompile-ahwto3/feature_tests.cxx
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\Tools\\LLVM\\bin\\clang++.exe -nostartfiles -nostdlib -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Xlinker /subsystem:console  -fuse-ld=lld-link CMakeFiles/cmTC_2edcd.dir/feature_tests.cxx.obj -o cmTC_2edcd.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_2edcd.lib -Xlinker /pdb:cmTC_2edcd.pdb -Xlinker /version:0.0   -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames  && cd ."
+        Run Build Command(s): D:/Tools/Perl/c/bin/ninja.exe -v cmTC_24c69
+        [1/2] D:\\Tools\\LLVM\\bin\\clang++.exe   -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd   -std=c++14 -MD -MT CMakeFiles/cmTC_24c69.dir/feature_tests.cxx.obj -MF CMakeFiles\\cmTC_24c69.dir\\feature_tests.cxx.obj.d -o CMakeFiles/cmTC_24c69.dir/feature_tests.cxx.obj -c D:/Projects/Python/DomePick/run_by_tensorrt/build/CMakeFiles/CMakeScratch/TryCompile-ft50gw/feature_tests.cxx
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\Tools\\LLVM\\bin\\clang++.exe -nostartfiles -nostdlib -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Xlinker /subsystem:console  -fuse-ld=lld-link CMakeFiles/cmTC_24c69.dir/feature_tests.cxx.obj -o cmTC_24c69.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_24c69.lib -Xlinker /pdb:cmTC_24c69.pdb -Xlinker /version:0.0   -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames  && cd ."
         
       exitCode: 0
   -
@@ -287,24 +293,26 @@ events:
       - "D:/Tools/CMake/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake:132 (_record_compiler_features_cxx)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerSupport.cmake:70 (cmake_record_cxx_compile_features)"
       - "D:/Tools/CMake/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:83 (CMAKE_DETERMINE_COMPILER_SUPPORT)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     checks:
       - "Detecting CXX compile features"
     directories:
-      source: "D:/Projects/Python/DomePick/run_by_tensorrt/build/CMakeFiles/CMakeScratch/TryCompile-lu4p0k"
-      binary: "D:/Projects/Python/DomePick/run_by_tensorrt/build/CMakeFiles/CMakeScratch/TryCompile-lu4p0k"
+      source: "D:/Projects/Python/DomePick/run_by_tensorrt/build/CMakeFiles/CMakeScratch/TryCompile-yu0yzj"
+      binary: "D:/Projects/Python/DomePick/run_by_tensorrt/build/CMakeFiles/CMakeScratch/TryCompile-yu0yzj"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "D:/Tools/LLVM/bin/clang-scan-deps.exe"
       CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-O0 -g -Xclang -gcodeview"
+      CMAKE_EXE_LINKER_FLAGS: ""
     buildResult:
       variable: "CMAKE_CXX_FEATURE_TEST"
       cached: true
       stdout: |
-        Change Dir: 'D:/Projects/Python/DomePick/run_by_tensorrt/build/CMakeFiles/CMakeScratch/TryCompile-lu4p0k'
+        Change Dir: 'D:/Projects/Python/DomePick/run_by_tensorrt/build/CMakeFiles/CMakeScratch/TryCompile-yu0yzj'
         
-        Run Build Command(s): D:/Tools/Perl/c/bin/ninja.exe -v cmTC_c39e8
-        [1/2] D:\\Tools\\LLVM\\bin\\clang++.exe   -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd   -std=c++14 -MD -MT CMakeFiles/cmTC_c39e8.dir/feature_tests.cxx.obj -MF CMakeFiles\\cmTC_c39e8.dir\\feature_tests.cxx.obj.d -o CMakeFiles/cmTC_c39e8.dir/feature_tests.cxx.obj -c D:/Projects/Python/DomePick/run_by_tensorrt/build/CMakeFiles/CMakeScratch/TryCompile-lu4p0k/feature_tests.cxx
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\Tools\\LLVM\\bin\\clang++.exe -nostartfiles -nostdlib -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Xlinker /subsystem:console  -fuse-ld=lld-link CMakeFiles/cmTC_c39e8.dir/feature_tests.cxx.obj -o cmTC_c39e8.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_c39e8.lib -Xlinker /pdb:cmTC_c39e8.pdb -Xlinker /version:0.0   -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames  && cd ."
+        Run Build Command(s): D:/Tools/Perl/c/bin/ninja.exe -v cmTC_c2303
+        [1/2] D:\\Tools\\LLVM\\bin\\clang++.exe   -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd   -std=c++14 -MD -MT CMakeFiles/cmTC_c2303.dir/feature_tests.cxx.obj -MF CMakeFiles\\cmTC_c2303.dir\\feature_tests.cxx.obj.d -o CMakeFiles/cmTC_c2303.dir/feature_tests.cxx.obj -c D:/Projects/Python/DomePick/run_by_tensorrt/build/CMakeFiles/CMakeScratch/TryCompile-yu0yzj/feature_tests.cxx
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\Tools\\LLVM\\bin\\clang++.exe -nostartfiles -nostdlib -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Xlinker /subsystem:console  -fuse-ld=lld-link CMakeFiles/cmTC_c2303.dir/feature_tests.cxx.obj -o cmTC_c2303.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_c2303.lib -Xlinker /pdb:cmTC_c2303.pdb -Xlinker /version:0.0   -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames  && cd ."
         
       exitCode: 0
 ...

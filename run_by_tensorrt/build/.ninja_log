@@ -1,0 +1,4 @@
+# ninja log v5
+55	1046	7546739226277849	CMakeFiles/DomePick.dir/src/main.cpp.obj	e6c9c6476a12ff06
+2	1095	7546739226829302	CMakeFiles/DomePick.dir/src/face_detector.cpp.obj	219af504858568c3
+29	1107	7546739226838945	CMakeFiles/DomePick.dir/src/age_gender.cpp.obj	269df22985658861

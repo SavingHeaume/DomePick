@@ -223,7 +223,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "-O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd"
+			"value" : "-O0 -g -Xclang -gcodeview"
 		},
 		{
 			"name" : "CMAKE_CXX_FLAGS_MINSIZEREL",
@@ -239,7 +239,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "-Os -DNDEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrt"
+			"value" : "-Os -DNDEBUG"
 		},
 		{
 			"name" : "CMAKE_CXX_FLAGS_RELEASE",
@@ -255,7 +255,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "-O3 -DNDEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrt"
+			"value" : "-O3 -DNDEBUG"
 		},
 		{
 			"name" : "CMAKE_CXX_FLAGS_RELWITHDEBINFO",
@@ -271,7 +271,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "-O2 -DNDEBUG -g -Xclang -gcodeview -D_DLL -D_MT -Xclang --dependent-lib=msvcrt"
+			"value" : "-O2 -DNDEBUG -g -Xclang -gcodeview"
 		},
 		{
 			"name" : "CMAKE_CXX_STANDARD_LIBRARIES",
@@ -383,7 +383,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "-O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd"
+			"value" : "-O0 -g -Xclang -gcodeview"
 		},
 		{
 			"name" : "CMAKE_C_FLAGS_MINSIZEREL",
@@ -399,7 +399,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "-Os -DNDEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrt"
+			"value" : "-Os -DNDEBUG"
 		},
 		{
 			"name" : "CMAKE_C_FLAGS_RELEASE",
@@ -415,7 +415,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "-O3 -DNDEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrt"
+			"value" : "-O3 -DNDEBUG"
 		},
 		{
 			"name" : "CMAKE_C_FLAGS_RELWITHDEBINFO",
@@ -431,7 +431,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "-O2 -DNDEBUG -g -Xclang -gcodeview -D_DLL -D_MT -Xclang --dependent-lib=msvcrt"
+			"value" : "-O2 -DNDEBUG -g -Xclang -gcodeview"
 		},
 		{
 			"name" : "CMAKE_C_STANDARD_LIBRARIES",
@@ -675,7 +675,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Program Files (x86)/Project"
+			"value" : "C:/Program Files (x86)/DomePick"
 		},
 		{
 			"name" : "CMAKE_LINKER",
@@ -1290,78 +1290,6 @@
 			"value" : "FALSE"
 		},
 		{
-			"name" : "DOMEPick_BINARY_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "D:/Projects/Python/DomePick/run_by_tensorrt/build"
-		},
-		{
-			"name" : "DOMEPick_IS_TOP_LEVEL",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "ON"
-		},
-		{
-			"name" : "DOMEPick_SOURCE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "D:/Projects/Python/DomePick/run_by_tensorrt"
-		},
-		{
-			"name" : "DOME_BINARY_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "D:/Projects/Python/DomePick/run_by_tensorrt/build"
-		},
-		{
-			"name" : "DOME_IS_TOP_LEVEL",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "ON"
-		},
-		{
-			"name" : "DOME_SOURCE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "D:/Projects/Python/DomePick/run_by_tensorrt"
-		},
-		{
 			"name" : "DomePick_BINARY_DIR",
 			"properties" : 
 			[
@@ -1387,78 +1315,6 @@
 		},
 		{
 			"name" : "DomePick_SOURCE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "D:/Projects/Python/DomePick/run_by_tensorrt"
-		},
-		{
-			"name" : "Project_BINARY_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "D:/Projects/Python/DomePick/run_by_tensorrt/build"
-		},
-		{
-			"name" : "Project_IS_TOP_LEVEL",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "ON"
-		},
-		{
-			"name" : "Project_SOURCE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "D:/Projects/Python/DomePick/run_by_tensorrt"
-		},
-		{
-			"name" : "TensorRTProject_BINARY_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "D:/Projects/Python/DomePick/run_by_tensorrt/build"
-		},
-		{
-			"name" : "TensorRTProject_IS_TOP_LEVEL",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "ON"
-		},
-		{
-			"name" : "TensorRTProject_SOURCE_DIR",
 			"properties" : 
 			[
 				{

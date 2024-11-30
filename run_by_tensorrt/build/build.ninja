@@ -51,7 +51,7 @@ build cmake_object_order_depends_target_DomePick: phony || .
 
 build CMakeFiles/DomePick.dir/src/face_detector.cpp.obj: CXX_COMPILER__DomePick_unscanned_Debug D$:/Projects/Python/DomePick/run_by_tensorrt/src/face_detector.cpp || cmake_object_order_depends_target_DomePick
   DEP_FILE = CMakeFiles\DomePick.dir\src\face_detector.cpp.obj.d
-  FLAGS = -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -std=gnu++17 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd
+  FLAGS = -O0 -g -Xclang -gcodeview -std=gnu++17 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -w
   INCLUDES = -ID:/Tools/TensorRT/include -ID:/Tools/CudaToolkit/include -ID:/Tools/OpenCV/include
   OBJECT_DIR = CMakeFiles\DomePick.dir
   OBJECT_FILE_DIR = CMakeFiles\DomePick.dir\src
@@ -60,7 +60,7 @@ build CMakeFiles/DomePick.dir/src/face_detector.cpp.obj: CXX_COMPILER__DomePick_
 
 build CMakeFiles/DomePick.dir/src/age_gender.cpp.obj: CXX_COMPILER__DomePick_unscanned_Debug D$:/Projects/Python/DomePick/run_by_tensorrt/src/age_gender.cpp || cmake_object_order_depends_target_DomePick
   DEP_FILE = CMakeFiles\DomePick.dir\src\age_gender.cpp.obj.d
-  FLAGS = -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -std=gnu++17 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd
+  FLAGS = -O0 -g -Xclang -gcodeview -std=gnu++17 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -w
   INCLUDES = -ID:/Tools/TensorRT/include -ID:/Tools/CudaToolkit/include -ID:/Tools/OpenCV/include
   OBJECT_DIR = CMakeFiles\DomePick.dir
   OBJECT_FILE_DIR = CMakeFiles\DomePick.dir\src
@@ -69,7 +69,7 @@ build CMakeFiles/DomePick.dir/src/age_gender.cpp.obj: CXX_COMPILER__DomePick_uns
 
 build CMakeFiles/DomePick.dir/src/main.cpp.obj: CXX_COMPILER__DomePick_unscanned_Debug D$:/Projects/Python/DomePick/run_by_tensorrt/src/main.cpp || cmake_object_order_depends_target_DomePick
   DEP_FILE = CMakeFiles\DomePick.dir\src\main.cpp.obj.d
-  FLAGS = -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -std=gnu++17 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd
+  FLAGS = -O0 -g -Xclang -gcodeview -std=gnu++17 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -w
   INCLUDES = -ID:/Tools/TensorRT/include -ID:/Tools/CudaToolkit/include -ID:/Tools/OpenCV/include
   OBJECT_DIR = CMakeFiles\DomePick.dir
   OBJECT_FILE_DIR = CMakeFiles\DomePick.dir\src
@@ -85,9 +85,9 @@ build CMakeFiles/DomePick.dir/src/main.cpp.obj: CXX_COMPILER__DomePick_unscanned
 # Link the executable DomePick.exe
 
 build DomePick.exe: CXX_EXECUTABLE_LINKER__DomePick_Debug CMakeFiles/DomePick.dir/src/face_detector.cpp.obj CMakeFiles/DomePick.dir/src/age_gender.cpp.obj CMakeFiles/DomePick.dir/src/main.cpp.obj
-  FLAGS = -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd
+  FLAGS = -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd
   LINK_FLAGS = -Xlinker /subsystem:console  -fuse-ld=lld-link
-  LINK_LIBRARIES = -lnvinfer.lib  -lnvonnxparser.lib  -lnvinfer_plugin.lib  -lcudart.lib  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames
+  LINK_LIBRARIES = -lnvinfer.lib  -lnvonnxparser.lib  -lnvinfer_plugin.lib  -lcudart.lib  -lopencv_core.lib  -lopencv_imgproc.lib  -lopencv_highgui.lib  -lopencv_imgcodecs.lib  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames
   LINK_PATH = -LD:/Tools/TensorRT/lib   -LD:/Tools/CudaToolkit/lib/x64   -LD:/Tools/OpenCV/x64/vc16/lib
   OBJECT_DIR = CMakeFiles\DomePick.dir
   POST_BUILD = cd .

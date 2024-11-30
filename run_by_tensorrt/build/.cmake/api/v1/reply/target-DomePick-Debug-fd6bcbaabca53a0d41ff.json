@@ -16,6 +16,7 @@
 			"add_executable",
 			"link_directories",
 			"target_link_libraries",
+			"add_compile_options",
 			"include_directories"
 		],
 		"files" : 
@@ -30,25 +31,31 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 34,
+				"line" : 36,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 20,
+				"line" : 22,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 37,
+				"line" : 39,
 				"parent" : 0
 			},
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 13,
+				"line" : 7,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 15,
 				"parent" : 0
 			}
 		]
@@ -59,21 +66,25 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -std=gnu++17 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd"
+					"fragment" : "-O0 -g -Xclang -gcodeview -std=gnu++17 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-w"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 4,
+					"backtrace" : 5,
 					"path" : "D:/Tools/TensorRT/include"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 5,
 					"path" : "D:/Tools/CudaToolkit/include"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 5,
 					"path" : "D:/Tools/OpenCV/include"
 				}
 			],
@@ -100,7 +111,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd",
+				"fragment" : "-O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd",
 				"role" : "flags"
 			},
 			{
@@ -144,6 +155,26 @@
 			{
 				"backtrace" : 3,
 				"fragment" : "-lcudart.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lopencv_core.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lopencv_imgproc.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lopencv_highgui.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lopencv_imgcodecs.lib",
 				"role" : "libraries"
 			},
 			{
