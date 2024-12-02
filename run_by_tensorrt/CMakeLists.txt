@@ -9,20 +9,20 @@ add_compile_options(-w)
 # TensorRT paths
 set(TENSORRT_ROOT "D:\\Tools\\TensorRT")
 set(CUDA_ROOT "D:\\Tools\\CudaToolkit")
-set(CV_ROOT "D:\\Tools\\OpenCV")
+
+find_package(OpenCV REQUIRED)
 
 # Include directories
 include_directories(
     ${TENSORRT_ROOT}/include
     ${CUDA_ROOT}/include
-    ${CV_ROOT}/include
+    ${OpenCV_INCLUDE_DIRS}
 )
 
 # Library directories
 link_directories(
     ${TENSORRT_ROOT}/lib
     ${CUDA_ROOT}/lib/x64
-    ${CV_ROOT}/x64/vc16/lib
 )
 
 # Source files
@@ -37,14 +37,11 @@ add_executable(${PROJECT_NAME} ${SRC_FILES})
 
 # Link libraries
 target_link_libraries(${PROJECT_NAME}
-  nvinfer
-  nvonnxparser
-  nvinfer_plugin
+  nvinfer_10
+  nvonnxparser_10
+  nvinfer_plugin_10
   cudart
-  opencv_core 
-  opencv_imgproc 
-  opencv_highgui 
-  opencv_imgcodecs
+  ${OpenCV_LIBS}
 )
 
 # Set CUDA runtime library (static or shared)
