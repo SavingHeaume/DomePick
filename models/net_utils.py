@@ -1,6 +1,22 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import os
+
+def get_backbone(weights_filename, weights_url, weights_dir='./weights', ):
+    # 确保权重目录存在
+    os.makedirs(weights_dir, exist_ok=True)
+
+    weights_path = os.path.join(weights_dir, weights_filename)
+    
+    # 如果本地没有权重文件，则下载
+    if not os.path.exists(weights_path):
+        print(f"下载预训练权重到 {weights_path}")
+        state_dict = torch.hub.load_state_dict_from_url(
+            weights_url, 
+            model_dir=weights_dir
+        )
+        torch.save(state_dict, weights_path)
 
 def conv_bn(inp, oup, stride = 1, leaky = 0):
     return nn.Sequential(
@@ -149,4 +165,24 @@ cfg_mnet = {
     'return_layers': {'stage1': 1, 'stage2': 2, 'stage3': 3},
     'in_channel': 32,
     'out_channel': 64
+}
+
+cfg_re50 = {
+    'name': 'Resnet50',
+    'min_sizes': [[16, 32], [64, 128], [256, 512]],
+    'steps': [8, 16, 32],
+    'variance': [0.1, 0.2],
+    'clip': False,
+    'loc_weight': 2.0,
+    'gpu_train': True,
+    'batch_size': 24,
+    'ngpu': 4,
+    'epoch': 100,
+    'decay1': 70,
+    'decay2': 90,
+    'image_size': 840,
+    'pretrain': True,
+    'return_layers': {'layer2': 1, 'layer3': 2, 'layer4': 3},
+    'in_channel': 256,
+    'out_channel': 256
 }

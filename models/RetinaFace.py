@@ -2,11 +2,14 @@ import torch
 import torch.nn as nn
 import torchvision.models._utils as _utils
 import torch.nn.functional as F
+from torchvision import models
 
 
-from models.net_utils import MobileNetV1 as MobileNetV1
+from models.net_utils import MobileNetV1
 from models.net_utils import FPN as FPN
 from models.net_utils import SSH as SSH
+from models.net_utils import get_backbone
+
 
 class ClassHead(nn.Module):
     def __init__(self,inchannels=512,num_anchors=3):
@@ -51,16 +54,22 @@ class RetinaFace(nn.Module):
         """
         super(RetinaFace,self).__init__()
         self.phase = phase
-        backbone = MobileNetV1()
-        if cfg['pretrain']:
-            checkpoint = torch.load("./weights/mobilenetV1X0.25_pretrain.tar", map_location=torch.device('cpu'))
-            from collections import OrderedDict
-            new_state_dict = OrderedDict()
-            for k, v in checkpoint['state_dict'].items():
-                name = k[7:]  # remove module.
-                new_state_dict[name] = v
-            # load params
-            backbone.load_state_dict(new_state_dict)
+        backbone = None
+        if cfg['name'] == 'mobilenet0.25':
+            backbone = MobileNetV1()
+            if cfg['pretrain']:
+                checkpoint = torch.load("./weights/mobilenetV1X0.25_pretrain.tar", map_location=torch.device('cpu'))
+                from collections import OrderedDict
+                new_state_dict = OrderedDict()
+                for k, v in checkpoint['state_dict'].items():
+                    name = k[7:]  # remove module.
+                    new_state_dict[name] = v
+                # load params
+                backbone.load_state_dict(new_state_dict)
+        elif cfg['name'] == 'Resnet50':
+            get_backbone("resnet50-0676ba61.pth", f"https://download.pytorch.org/models/resnet50-0676ba61.pth")
+            backbone = models.resnet50(weights=None)
+            backbone.load_state_dict(torch.load("./weights/resnet50-0676ba61.pth"))
 
         self.body = _utils.IntermediateLayerGetter(backbone, cfg['return_layers'])
         in_channels_stage2 = cfg['in_channel']
