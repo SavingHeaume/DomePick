@@ -12,38 +12,62 @@ FaceDetector::FaceDetector(const std::string& onnxModelPath) {
   // 初始化TensorRT运行时
   runtime.reset(nvinfer1::createInferRuntime(logger));
   if (!runtime) {
-    throw std::runtime_error("创建TensorRT运行时失败");
+    throw std::runtime_error("Failed to create TensorRT runtime");
   }
 
   // 解析ONNX模型
-  auto builder = std::unique_ptr<nvinfer1::IBuilder, InferDeleter>(
+  auto builder = std::unique_ptr<nvinfer1::IBuilder>(
       nvinfer1::createInferBuilder(logger));
-  auto network = std::unique_ptr<nvinfer1::INetworkDefinition, InferDeleter>(
+  auto network = std::unique_ptr<nvinfer1::INetworkDefinition>(
       builder->createNetworkV2(0));
-  auto parser = std::unique_ptr<nvonnxparser::IParser, InferDeleter>(
+  auto parser = std::unique_ptr<nvonnxparser::IParser>(
       nvonnxparser::createParser(*network, logger));
 
   // 解析ONNX模型文件
   if (!parser->parseFromFile(onnxModelPath.c_str(), 2)) {
-    throw std::runtime_error("解析ONNX模型失败");
+    throw std::runtime_error("Failed to parse ONNX model");
   }
 
   // 配置TensorRT构建
-  auto config = std::unique_ptr<nvinfer1::IBuilderConfig, InferDeleter>(
+  auto config = std::unique_ptr<nvinfer1::IBuilderConfig>(
       builder->createBuilderConfig());
-  config->setMemoryPoolLimit(nvinfer1::MemoryPoolType::kWORKSPACE, 1U << 30);
+  config->setMemoryPoolLimit(nvinfer1::MemoryPoolType::kWORKSPACE, 1 << 30);
   config->setFlag(nvinfer1::BuilderFlag::kFP16);
+
+  // 定义优化配置文件
+  auto profile = builder->createOptimizationProfile();
+  auto input = network->getInput(0);
+  if (!input) {
+    throw std::runtime_error("Failed to get network input");
+  }
+
+  const std::string inputName = input->getName();
+  auto inputDims = input->getDimensions();
+
+  if (inputDims.nbDims != 4) {
+    throw std::runtime_error("Unexpected input dimensions");
+  }
+
+  // 设置输入的最小、最优和最大值范围
+  profile->setDimensions(inputName.c_str(), nvinfer1::OptProfileSelector::kMIN, nvinfer1::Dims4(1, 3, 640, 640));
+  profile->setDimensions(inputName.c_str(), nvinfer1::OptProfileSelector::kOPT, nvinfer1::Dims4(1, 3, 640, 640));
+  profile->setDimensions(inputName.c_str(), nvinfer1::OptProfileSelector::kMAX, nvinfer1::Dims4(1, 3, 640, 640));
+
+  //if (!config->addOptimizationProfile(profile)) {
+  //  throw std::runtime_error("Failed to add optimization profile");
+  //}
+  config->addOptimizationProfile(profile);
 
   // 构建引擎
   engine.reset(builder->buildEngineWithConfig(*network, *config));
   if (!engine) {
-    throw std::runtime_error("构建TensorRT引擎失败");
+    throw std::runtime_error("Failed to build TensorRT engine");
   }
 
   // 创建执行上下文
   context.reset(engine->createExecutionContext());
   if (!context) {
-    throw std::runtime_error("创建执行上下文失败");
+    throw std::runtime_error("Failed to create execution context");
   }
 
   // 获取输入输出维度
@@ -130,8 +154,11 @@ FaceDetector::detectWithAgeGender(const cv::Mat& image,
       combined_results;
 
   // 对每个检测到的人脸进行年龄性别识别
-  for (const auto& bbox : detection_results[0]) {
-    // 假设bbox_regressions每4个元素代表一个人脸的边界框
+  //for (const auto& bbox : detection_results[0]) {
+  int size = detection_results[1].size() / 2;
+  for (int i = 0; i < detection_results[0].size(); i += 4) {
+    // bbox_regressions每4个元素代表一个人脸的边界框
+    float bbox = detection_results[0][i];
     std::vector<float> face_bbox = {bbox, bbox + 1, bbox + 2, bbox + 3};
 
     // 进行年龄性别识别

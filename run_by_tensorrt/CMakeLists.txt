@@ -4,9 +4,11 @@ project(DomePick)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_compile_options(-w)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-# TensorRT paths
+add_compile_options(/w)
+
+# TensorRT paths                                                               
 set(TENSORRT_ROOT "D:\\Tools\\TensorRT")
 set(CUDA_ROOT "D:\\Tools\\CudaToolkit")
 

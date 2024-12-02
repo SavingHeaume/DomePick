@@ -3,14 +3,16 @@
 
 int main() {
   try {
-    // 初始化人脸检测器
-    FaceDetector faceDetector("face_detection.onnx");
+
 
     // 初始化年龄性别识别器
-    AgeGenderDetector ageGenderDetector("age_gender_detection.onnx");
+    AgeGenderDetector ageGenderDetector("D:\\Projects\\Python\\DomePick\\weights\\age_gender.onnx");
+
+    // 初始化人脸检测器
+    FaceDetector faceDetector("D:\\Projects\\Python\\DomePick\\weights\\retinaface.onnx");
 
     // 加载测试图像
-    cv::Mat testImage = cv::imread("test_image.jpg");
+    cv::Mat testImage = cv::imread("D:\\Downloads\\00004.jpg");
 
     // 同时进行人脸检测和年龄性别识别
     auto results =
