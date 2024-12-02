@@ -7,3 +7,4 @@ run_by_tensorrt/.vs/
 run_by_tensorrt/out/
 models/__pycache__/
 .vscode/
+models/__pycache__

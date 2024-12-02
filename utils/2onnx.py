@@ -5,7 +5,8 @@ import onnx
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from models.AgeGenderModel import AgeGenderModel 
 from models.RetinaFace import RetinaFace
-from models.net_utils import cfg_mnet
+from models.net_utils import cfg_mnet, cfg_re50
+from models.net_utils import check_keys, remove_prefix
 
 def export_AgeGender_to_onnx(model_path='best_age_gender_model.pth', 
                    onnx_path='age_gender_model.onnx', 
@@ -63,11 +64,15 @@ def export_AgeGender_to_onnx(model_path='best_age_gender_model.pth',
         print(f"ONNX模型验证失败: {e}")
 
 
-def export_retinaface_to_onnx(model_path, output_path='retinaface.onnx'):
-    model = RetinaFace(cfg_mnet, phase = "test")
-    model.load_state_dict(torch.load(model_path))
-
-    # 设置模型为评估模式
+def export_retinaface_to_onnx(output_path='retinaface.onnx'):
+    model = RetinaFace(cfg_re50, phase = "test")
+    pretrained_dict = torch.load("./weights/Resnet50_Final.pth", map_location=lambda storage, loc: storage)
+    if "state_dict" in pretrained_dict.keys():
+        pretrained_dict = remove_prefix(pretrained_dict['state_dict'], 'module.')
+    else:
+        pretrained_dict = remove_prefix(pretrained_dict, 'module.')
+    check_keys(model, pretrained_dict)
+    model.load_state_dict(pretrained_dict, strict=False)
     model.eval()
 
     # 创建示例输入
@@ -108,7 +113,6 @@ def main():
     )
 
     export_retinaface_to_onnx(
-        model_path="./weights/mobilenet0.25_Final.pth", 
         output_path="./weights/retinaface.onnx"
     )
 
