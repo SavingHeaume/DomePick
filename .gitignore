@@ -1,3 +1,7 @@
 datasets/
+weights/
 run_by_tensorrt/build/
 run_by_tensorrt/.cache/
+.vscode/
+run_by_tensorrt/.vscode/
+models/__pycache__/
