@@ -37,7 +37,7 @@ class FaceDetector {
  public:
   FaceDetector(const std::string& onnxModelPath);
 
-  std::vector<std::vector<float>> detect(const cv::Mat& image);
+  std::vector<std::vector<float>> detect(cv::Mat image);
 
   ~FaceDetector();
 

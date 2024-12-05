@@ -92,22 +92,27 @@ FaceDetector::FaceDetector(const std::string& onnxModelPath) {
   cudaMalloc(&deviceOutputBuffer3, outputSize3);
 }
 
-std::vector<std::vector<float>> FaceDetector::detect(const cv::Mat& image) {
-  // 预处理：调整图像大小并归一化
-  cv::Mat resizedImage;
-  cv::resize(image, resizedImage, cv::Size(640, 640));
-  resizedImage.convertTo(resizedImage, CV_32F, 1.0 / 255.0);
+std::vector<std::vector<float>> FaceDetector::detect(cv::Mat image) {
+  // 预处理
+  image.convertTo(image, CV_32FC3);
+
+  cv::Scalar mean_values(104.0, 117.0, 123.0);
+  image -= mean_values;
+
+  cv::Mat img_chw;
+  cv::dnn::blobFromImage(image, img_chw, 1.0, cv::Size(640, 640), mean_values, false, false);
+
 
   // 将图像拷贝到GPU
-  cudaMemcpyAsync(deviceInputBuffer, resizedImage.ptr<float>(),
-                  640 * 640 * 3 * sizeof(float), cudaMemcpyHostToDevice,
+  cudaMemcpyAsync(deviceInputBuffer, img_chw.ptr<float>(),
+                  3 * 640 * 640 * sizeof(float), cudaMemcpyHostToDevice,
                   stream);
 
   // 绑定输入输出缓存
   void* bindings[] = {deviceInputBuffer, deviceOutputBuffer1,
                       deviceOutputBuffer2, deviceOutputBuffer3};
 
-  // 执行推理 (注意：只传入bindings数组)
+  // 执行推理
   context->executeV2(bindings);
 
   // 分配主机内存存储结果
@@ -129,7 +134,6 @@ std::vector<std::vector<float>> FaceDetector::detect(const cv::Mat& image) {
   // 同步等待
   cudaStreamSynchronize(stream);
 
-  // 后处理：这里仅为示例，实际需要根据具体模型实现非极大值抑制等
   return {bbox_regressions, classifications, ldm_regressions};
 }
 
@@ -140,32 +144,4 @@ FaceDetector::~FaceDetector() {
   cudaFree(deviceOutputBuffer2);
   cudaFree(deviceOutputBuffer3);
   cudaStreamDestroy(stream);
-
-  // 智能指针会自动调用删除器
-}
-
-std::vector<std::pair<std::vector<float>, AgeGenderDetector::DetectionResult>>
-FaceDetector::detectWithAgeGender(const cv::Mat& image,
-                                  AgeGenderDetector& ageGenderDetector) {
-  // 执行人脸检测
-  auto detection_results = detect(image);
-
-  std::vector<std::pair<std::vector<float>, AgeGenderDetector::DetectionResult>>
-      combined_results;
-
-  // 对每个检测到的人脸进行年龄性别识别
-  //for (const auto& bbox : detection_results[0]) {
-  int size = detection_results[1].size() / 2;
-  for (int i = 0; i < detection_results[0].size(); i += 4) {
-    // bbox_regressions每4个元素代表一个人脸的边界框
-    float bbox = detection_results[0][i];
-    std::vector<float> face_bbox = {bbox, bbox + 1, bbox + 2, bbox + 3};
-
-    // 进行年龄性别识别
-    auto age_gender_result = ageGenderDetector.detect(image, face_bbox);
-
-    combined_results.emplace_back(face_bbox, age_gender_result);
-  }
-
-  return combined_results;
 }
