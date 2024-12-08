@@ -9,7 +9,7 @@ private:
 
 public:
   Run();
-  void get();
-  void run_face_detector(std::string path);
-  void run_age_gender();
+  void Get();
+  std::vector<std::vector<float>> RunFaceDetector(std::string path);
+  void RunAgeGender(std::vector<std::vector<float>> final_boxes, std::string path);
 };

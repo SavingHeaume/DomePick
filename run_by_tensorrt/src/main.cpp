@@ -2,7 +2,7 @@
 
 int main() {
   Run run;
-  run.get();
+  run.Get();
 
   return 0;
 }
