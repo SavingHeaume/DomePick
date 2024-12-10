@@ -59,8 +59,8 @@ def draw_face_boxes(image, final_boxes):
 
 if __name__ == "__main__":
     # 加载图像
-    img = cv.imread("D:\\Pictures\\600x800.jpg", cv.IMREAD_COLOR)  # 默认读取为 HWC 格式
-    img = cv.resize(src=img, dsize=(640, 640))
+    img = cv.imread("D:\\Pictures\\600x800.jpg", cv.IMREAD_COLOR)  
+    # img = cv.resize(src=img, dsize=(640, 640))
 
     # 示例检测结果（final_boxes）
     final_boxes = [

@@ -31,6 +31,7 @@ link_directories(
 set(SRC_FILES
     src/face_detector.cpp
     src/age_gender.cpp
+    src/decode_face.cpp
     src/run.cpp
     src/main.cpp
 )
