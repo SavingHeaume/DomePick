@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ad Display</title>
+    <script>
+        let ws;
+        function startWebSocket() {
+            ws = new WebSocket(`ws://${window.location.host}/stream`);
+            ws.onmessage = function(event) {
+                const data = JSON.parse(event.data);
+                if (data.error) {
+                    console.error(data.error);
+                } else {
+                    // Update received info
+                    const receivedInfo = document.getElementById('received-info');
+                    receivedInfo.innerHTML = '';
+                    data.received_info.forEach(info => {
+                        const item = document.createElement('p');
+                        item.textContent = `Gender: ${info.gender}, Age: ${info.age}, Recommended Ad: ${info.ad}`;
+                        receivedInfo.appendChild(item);
+                    });
+
+                    // Update ad queues
+                    const tableBody = document.getElementById('queues');
+                    tableBody.innerHTML = '';
+                    for (const [board, queue] of Object.entries(data.queues)) {
+                        const row = document.createElement('tr');
+                        const boardCell = document.createElement('td');
+                        boardCell.textContent = board;
+                        row.appendChild(boardCell);
+
+                        const queueCell = document.createElement('td');
+                        queueCell.textContent = queue.join(', ');
+                        row.appendChild(queueCell);
+
+                        tableBody.appendChild(row);
+                    }
+
+                    // Update count info
+                    document.getElementById('count-info').textContent = `People Count: ${data.count}`;
+                }
+            };
+        }
+    </script>
+</head>
+<body onload="startWebSocket()">
+    <h1>Ad Display System</h1>
+    <div id="count-info">Awaiting data...</div>
+    <div id="received-info"></div>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Ad Board</th>
+                <th>Current Queue</th>
+            </tr>
+        </thead>
+        <tbody id="queues">
+        </tbody>
+    </table>
+    <div>
+        <h2>Simulated Ad Boards</h2>
+        <p>AdBoard 1 | AdBoard 2 | AdBoard 3 | AdBoard 4 | AdBoard 5</p>
+    </div>
+</body>
+</html>
