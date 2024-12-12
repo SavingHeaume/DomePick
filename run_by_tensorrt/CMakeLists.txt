@@ -13,6 +13,7 @@ set(TENSORRT_ROOT "D:\\Tools\\TensorRT")
 set(CUDA_ROOT "D:\\Tools\\CudaToolkit")
 
 find_package(OpenCV REQUIRED)
+find_package(jsoncpp REQUIRED)
 
 # Include directories
 include_directories(
@@ -33,6 +34,7 @@ set(SRC_FILES
     src/age_gender.cpp
     src/decode_face.cpp
     src/run.cpp
+    src/json_converter.cpp
     src/main.cpp
 )
 
@@ -46,6 +48,7 @@ target_link_libraries(${PROJECT_NAME}
   nvinfer_plugin_10
   cudart
   ${OpenCV_LIBS}
+  jsoncpp_lib
 )
 
 # Set CUDA runtime library (static or shared)

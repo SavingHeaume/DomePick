@@ -3,6 +3,9 @@
 #include "utils.h"
 #include <algorithm>
 #include "decode_face.h"
+#include <json/json.h>
+#include "json_converter.h"
+#include "httplib.h"
 
 Run::Run() {
   age_gender_detector_ = new AgeGenderDetector("D:\\Projects\\Python\\DomePick\\weights\\age_gender.onnx");
@@ -15,7 +18,9 @@ void Run::Get() {
   std::vector<std::vector<float>> final_boxes = RunFaceDetector(path);
 
   auto final_result = RunAgeGender(final_boxes, path);
-  std::cout << final_result[0].age << " " << final_result[0].gender << "\n";
+
+  JsonConverter json_converter(final_result);
+  http_send(json_converter);
 }
 
 std::vector<AgeGenderDetector::DetectionResult> Run::RunAgeGender(std::vector<std::vector<float>> final_boxes, std::string path) {
@@ -56,4 +61,27 @@ std::vector<std::vector<float>> Run::RunFaceDetector(std::string path) {
   auto detection_results = face_detector_->detect(testImage);
   DecodeFace decode_face(detection_results[0], detection_results[1]);
   return decode_face.GetFinalBoxes();
+}
+
+void Run::http_send(JsonConverter json_converter) {
+
+  const std::string json_string = json_converter.ToJsonString();
+
+  // 3. 创建HTTP客户端
+  httplib::Client cli("http://127.0.0.1:5000/stream");
+
+  // 4. 设置HTTP头
+  httplib::Headers headers;
+  headers.emplace("Content-Type", "application/json");
+
+  // 5. 发送POST请求
+  auto res = cli.Post("/api/endpoint", headers, json_string, "application/json");
+
+  // 6. 处理响应
+  if (res && res->status == 200) {
+    std::cout << "Response: " << res->body << std::endl;
+  }
+  else {
+    std::cout << "Failed to send request." << std::endl;
+  }
 }
