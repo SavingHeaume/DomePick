@@ -97,7 +97,7 @@ std::vector<std::vector<float>> FaceDetector::detect(cv::Mat image) {
   image.convertTo(image, CV_32FC3);
 
   cv::Scalar mean_values(104.0, 117.0, 123.0);
-  image -= mean_values;
+  //image -= mean_values;
 
   cv::Mat img_chw;
   cv::dnn::blobFromImage(image, img_chw, 1.0, cv::Size(640, 640), mean_values, false, false);

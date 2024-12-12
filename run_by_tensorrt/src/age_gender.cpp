@@ -9,6 +9,10 @@
 #include <unordered_map>
 #include <vector>
 
+std::unordered_map<int, std::string> AGE_GROUPS = {
+    {0, "(0, 2)"},   {1, "(4, 6)"},   {2, "(8, 13)"},  {3, "(15, 20)"},
+    {4, "(25, 32)"}, {5, "(38, 43)"}, {6, "(48, 53)"}, {7, "(60, )"} };
+
 AgeGenderDetector::AgeGenderDetector(const std::string& onnxModelPath) {
   // 初始化TensorRT运行时
   runtime.reset(nvinfer1::createInferRuntime(logger));
@@ -79,8 +83,8 @@ AgeGenderDetector::AgeGenderDetector(const std::string& onnxModelPath) {
   // 分配GPU内存
   size_t inputSize =
       inputDims.d[1] * inputDims.d[2] * inputDims.d[3] * sizeof(float);
-  size_t outputSize1 = outputDims1.d[1] * outputDims1.d[2] * sizeof(float);
-  size_t outputSize2 = outputDims2.d[1] * outputDims2.d[2] * sizeof(float);
+  size_t outputSize1 = outputDims1.d[1] * sizeof(float);
+  size_t outputSize2 = outputDims2.d[1] * sizeof(float);
 
   cudaMalloc(&deviceInputBuffer, inputSize);
   cudaMalloc(&deviceOutputBuffer1, outputSize1);
@@ -89,29 +93,29 @@ AgeGenderDetector::AgeGenderDetector(const std::string& onnxModelPath) {
 
 // 从人脸检测网络的bbox中裁剪和处理图像
 AgeGenderDetector::DetectionResult AgeGenderDetector::detect(
-    const cv::Mat& image, const std::vector<float>& bbox_regressions) {
-  // 假设bbox_regressions的格式为 [x, y, width, height]
-  // 从bbox中裁剪人脸区域
-  cv::Rect face_roi(bbox_regressions[0], bbox_regressions[1],
-                    bbox_regressions[2], bbox_regressions[3]);
+    const cv::Mat& image) {
 
-  // 确保ROI在图像范围内
-  face_roi.x = std::max(0, face_roi.x);
-  face_roi.y = std::max(0, face_roi.y);
-  face_roi.width = std::min(face_roi.width, image.cols - face_roi.x);
-  face_roi.height = std::min(face_roi.height, image.rows - face_roi.y);
+  // 标准化和格式转换
+  cv::Mat blob = cv::dnn::blobFromImage(
+    image,
+    1.0 / 255.0,                  // 缩放因子
+    cv::Size(224, 224),           // 目标尺寸
+    cv::Scalar(0.485, 0.456, 0.406), // 均值 (ImageNet)
+    true,                         // 交换通道 BGR -> RGB
+    false,                        // 不裁剪
+    CV_32F                        // 数据类型
+  );
 
-  // 裁剪人脸区域
-  cv::Mat face_image = image(face_roi);
-
-  // 调整大小为网络输入尺寸
-  cv::Mat resizedImage;
-  cv::resize(face_image, resizedImage, cv::Size(240, 240));
-  resizedImage.convertTo(resizedImage, CV_32F, 1.0 / 255.0);
+  // 标准化：除以标准差
+  std::vector<float> std = { 0.229, 0.224, 0.225 };
+  for (int i = 0; i < 3; ++i) {
+    cv::Mat channel(blob.size[2], blob.size[3], CV_32F, blob.ptr(0, i));
+    channel /= std[i];
+  }
 
   // 将图像拷贝到GPU
-  cudaMemcpyAsync(deviceInputBuffer, resizedImage.ptr<float>(),
-                  240 * 240 * 3 * sizeof(float), cudaMemcpyHostToDevice,
+  cudaMemcpyAsync(deviceInputBuffer, blob.ptr<float>(),
+                  3 * 240 * 240 * sizeof(float), cudaMemcpyHostToDevice,
                   stream);
 
   // 绑定输入输出缓存
@@ -141,15 +145,19 @@ AgeGenderDetector::DetectionResult AgeGenderDetector::detect(
 
   // 后处理
   DetectionResult result;
-  result.gender_probs = gender_probs;
-  result.age_probs = age_probs;
 
-  // 找到年龄组最大概率索引
+  // std::max_element: 返回指向范围[vec.begin(), vec.end()) 中最大值的迭代器。
+  // std::distance: 用于计算从 vec.begin() 到 maxElementIter 的距离，这个距离就是索引。
   auto max_age_it = std::max_element(age_probs.begin(), age_probs.end());
   int max_age_index = std::distance(age_probs.begin(), max_age_it);
+  result.age = AGE_GROUPS.at(max_age_index);
 
-  result.predicted_ages.push_back(max_age_index);
-  result.age_group_names.push_back(AGE_GROUPS.at(max_age_index));
+  if (gender_probs[0] > gender_probs[1]) {
+    result.gender = 0;
+  }
+  else {
+    result.gender = 1;
+  }
 
   return result;
 }
